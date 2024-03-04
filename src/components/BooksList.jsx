@@ -1,35 +1,9 @@
 import { useState } from "react";
 
-const BooksList = ({ books }) => {
-  const [updatedBooks, setUpdatedBooks] = useState(books);
-
-  const loanBook = (uuid) => {
-    const updatedBookList = updatedBooks.map((book) => {
-      if (book.uuid === uuid)
-        return {
-          ...book,
-          numberOfAvailableCopies: book.numberOfAvailableCopies - 1,
-        };
-
-      return book;
-    });
-    setUpdatedBooks(updatedBookList);
-  };
-  const returnBook = (uuid) => {
-    const updatedBooksList = updatedBooks.map((book) => {
-      if (book.uuid === uuid)
-        return {
-          ...book,
-          numberOfAvailableCopies: book.numberOfAvailableCopies + 1,
-        };
-
-      return book;
-    });
-    setUpdatedBooks(updatedBooksList);
-  };
+const BooksList = ({ books, returnBook, loanBook }) => {
   return (
     <div>
-      {updatedBooks.map((book) => (
+      {books.map((book) => (
         <div
           className={`book ${
             book.numberOfAvailableCopies === 0 ? "disabled" : ""
