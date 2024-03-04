@@ -5,7 +5,7 @@ import AddBook from "./AddBook";
 
 const Books = () => {
   const [books, setBooks] = useState(booksInLibrary);
-  const [showBooks, setShowBooks] = useState(false);
+  const [showBooks, setShowBooks] = useState(true);
   const addBook = (newBook) => {
     const updatedBooks = [...books, newBook];
     updatedBooks.sort((a, b) => {
