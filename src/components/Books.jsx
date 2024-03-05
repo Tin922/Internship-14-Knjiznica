@@ -63,7 +63,8 @@ const Books = () => {
 
   return (
     <div>
-      <button onClick={handleShowBooks}>
+      <h1>Knjižnica</h1>
+      <button className="book_visibility_toggle" onClick={handleShowBooks}>
         {showBooks ? "Sakrij knjige" : "Prikazi sve knjige u knjiznici"}
       </button>
       {showBooks && (

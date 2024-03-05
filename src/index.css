@@ -1,3 +1,14 @@
+h1 {
+  text-align: center;
+}
+.book_visibility_toggle {
+  margin-left: 50px;
+}
+h2 {
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 40px;
+}
 .book.disabled {
   opacity: 0.5;
 }
@@ -21,10 +32,13 @@
 .book_cover {
   order: -1;
   width: 150px;
+  display: flex;
+  align-items: center;
 }
 .book_cover img {
   width: 150px;
   height: auto;
+  text-align: center;
 }
 .returnAndLoanButtons {
   display: flex;
@@ -38,6 +52,18 @@
   margin-top: 1rem;
 }
 
+.search_section_outer_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+.search_section {
+  width: 480px;
+}
+.submit_form_button {
+  margin-top: 10px;
+}
 form {
   max-width: 400px;
   margin: 0 auto;
@@ -63,6 +89,7 @@ select {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+  margin: 5px 0;
 }
 
 input:focus {

@@ -36,45 +36,51 @@ const AddBook = ({ onAddBook }) => {
     <div className="addBook">
       <h2>Dodaj novu knjigu</h2>
       <form onSubmit={handleSubmit}>
-        <label>Ime knjige</label>
+        <label htmlFor="title">Ime knjige</label>
         <input
           type="text"
           required
+          id="title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <label>Autor</label>
+        <label htmlFor="author">Autor</label>
         <input
           type="text"
           required
+          id="author"
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
         />
-        <label>Naslovna slika</label>
+        <label htmlFor="bookCover">Naslovna slika</label>
         <input
           type="url"
           value={bookCover}
+          id="bookCover"
           onChange={(e) => setBookCover(e.target.value)}
         />
-        <label>Izdavačka kuća</label>
+        <label htmlFor="publisher">Izdavačka kuća</label>
         <input
           type="text"
           required
+          id="publisher"
           value={publisher}
           onChange={(e) => setPublisher(e.target.value)}
         />
-        <label>Godina izdanja</label>
+        <label htmlFor="yearOfPublishment">Godina izdanja</label>
         <input
           type="number"
           required
+          id="yearOfPublishment"
           value={yearOfPublishment}
           min={1}
           onChange={(e) => setYearOfPublishment(e.target.value)}
         />
-        <label>Žanr</label>
+        <label htmlFor="genre">Žanr</label>
         <select
           required
           value={genre}
+          id="genre"
           onChange={(e) => setGenre(e.target.value)}
         >
           <option value="roman">Roman</option>
@@ -84,15 +90,20 @@ const AddBook = ({ onAddBook }) => {
           <option value="znanstvena fantastika">Znanstvena fantastika</option>
           <option value="biografija">Biografija</option>
         </select>
-        <label>Broj primjeraka dostupan u knjižnici</label>
+        <label htmlFor="numberOfAvailableCopies">
+          Broj primjeraka dostupan u knjižnici
+        </label>
         <input
           type="number"
           required
+          id="numberOfAvailableCopies"
           value={numberOfAvailableCopies}
           min={1}
           onChange={(e) => setNumberOfAvailableCopies(parseInt(e.target.value))}
         />
-        <button type="submit">Dodaj knjigu</button>
+        <button className="submit_form_button" type="submit">
+          Dodaj knjigu
+        </button>
       </form>
     </div>
   );
