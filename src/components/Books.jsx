@@ -65,7 +65,7 @@ const Books = () => {
     <div>
       <h1>Knjižnica</h1>
       <button className="book_visibility_toggle" onClick={handleShowBooks}>
-        {showBooks ? "Sakrij knjige" : "Prikazi sve knjige u knjiznici"}
+        {showBooks ? "Sakrij knjige" : "Prikazi sve knjige u knjižnici"}
       </button>
       {showBooks && (
         <BooksList books={books} returnBook={returnBook} loanBook={loanBook} />

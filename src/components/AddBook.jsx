@@ -83,12 +83,12 @@ const AddBook = ({ onAddBook }) => {
           id="genre"
           onChange={(e) => setGenre(e.target.value)}
         >
-          <option value="roman">Roman</option>
-          <option value="poezija">Poezija</option>
-          <option value="drama">Drama</option>
-          <option value="fantazija">Fantazija</option>
-          <option value="znanstvena fantastika">Znanstvena fantastika</option>
-          <option value="biografija">Biografija</option>
+          <option value="Roman">Roman</option>
+          <option value="Poezija">Poezija</option>
+          <option value="Drama">Drama</option>
+          <option value="Fantazija">Fantazija</option>
+          <option value="Znanstvena fantastika">Znanstvena fantastika</option>
+          <option value="Biografija">Biografija</option>
         </select>
         <label htmlFor="numberOfAvailableCopies">
           Broj primjeraka dostupan u knjižnici

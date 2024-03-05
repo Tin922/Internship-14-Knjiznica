@@ -19,26 +19,28 @@ const Search = ({ books, returnBook, loanBook }) => {
   return (
     <div className="search_section_outer_container">
       <div className="search_section">
-        <label htmlFor="search">Pretraga kataloga</label>
+        <h2>Pretraga kataloga</h2>
+
+        <label htmlFor="search">Naziv knjige ili autora</label>
         <input
           type="search"
           value={query}
           id="search"
           onChange={(e) => setQuery(e.target.value)}
         />
-        <label htmlFor="category">Odaberite žanr knjige</label>
+        <label htmlFor="category">Žanr knjige</label>
         <select
           value={selectedCategory}
           onChange={(e) => changeSelectedCategory(e)}
           id="category"
         >
           <option value=""></option>
-          <option value="roman">Roman</option>
-          <option value="poezija">Poezija</option>
-          <option value="drama">Drama</option>
-          <option value="fantazija">Fantazija</option>
-          <option value="znanstvena fantastika">Znanstvena fantastika</option>
-          <option value="biografija">Biografija</option>
+          <option value="Roman">Roman</option>
+          <option value="Poezija">Poezija</option>
+          <option value="Drama">Drama</option>
+          <option value="Fantazija">Fantazija</option>
+          <option value="Znanstvena fantastika">Znanstvena fantastika</option>
+          <option value="Biografija">Biografija</option>
         </select>
         <BooksList
           books={filteredBooks}
