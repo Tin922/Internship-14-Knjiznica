@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 const AddBook = ({ onAddBook }) => {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
-  const [photo, setPhoto] = useState("");
+  const [bookCover, setBookCover] = useState("");
   const [publisher, setPublisher] = useState("");
   const [yearOfPublishment, setYearOfPublishment] = useState("");
   const [genre, setGenre] = useState("Roman");
@@ -16,7 +16,7 @@ const AddBook = ({ onAddBook }) => {
       uuid: uuidv4(),
       title,
       author,
-      photo,
+      bookCover,
       publisher,
       yearOfPublishment,
       genre,
@@ -24,11 +24,12 @@ const AddBook = ({ onAddBook }) => {
     };
     setTitle("");
     setAuthor("");
-    setPhoto("");
+    setBookCover("");
     setPublisher("");
     setYearOfPublishment("");
     setGenre("Roman");
     setNumberOfAvailableCopies("");
+
     onAddBook(newBook);
   };
   return (
@@ -52,8 +53,8 @@ const AddBook = ({ onAddBook }) => {
         <label>Naslovna slika</label>
         <input
           type="url"
-          value={photo}
-          onChange={(e) => setPhoto(e.target.value)}
+          value={bookCover}
+          onChange={(e) => setBookCover(e.target.value)}
         />
         <label>Izdavačka kuća</label>
         <input
@@ -89,7 +90,7 @@ const AddBook = ({ onAddBook }) => {
           required
           value={numberOfAvailableCopies}
           min={1}
-          onChange={(e) => setNumberOfAvailableCopies(e.target.value)}
+          onChange={(e) => setNumberOfAvailableCopies(parseInt(e.target.value))}
         />
         <button type="submit">Dodaj knjigu</button>
       </form>

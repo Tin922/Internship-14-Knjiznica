@@ -5,13 +5,12 @@ const Search = ({ books, returnBook, loanBook }) => {
   const [query, setQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const filteredBooks = books.filter((book) => {
-    return (
-      (book.title.toLowerCase().includes(query.toLocaleLowerCase()) ||
-        book.author.toLocaleLowerCase().includes(query.toLocaleLowerCase())) &&
-      book.genre
-        .toLocaleLowerCase()
-        .includes(selectedCategory.toLocaleLowerCase())
-    );
+    if (query !== "")
+      return (
+        (book.title.toLowerCase().includes(query.toLocaleLowerCase()) ||
+          book.author.toLowerCase().includes(query.toLocaleLowerCase())) &&
+        book.genre.toLowerCase().includes(selectedCategory.toLowerCase())
+      );
   });
   const changeSelectedCategory = (e) => {
     setSelectedCategory(e.target.value);

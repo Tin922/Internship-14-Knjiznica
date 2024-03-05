@@ -5,12 +5,11 @@ import AddBook from "./AddBook";
 import Search from "./Search";
 
 const Books = () => {
-  const [books, setBooks] = useState(booksInLibrary);
   const [showBooks, setShowBooks] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
-  const addBook = (newBook) => {
-    const updatedBooks = [...books, newBook];
-    updatedBooks.sort((a, b) => {
+
+  const sortBooks = (books) => {
+    books.sort((a, b) => {
       if (a.author === b.author) {
         if (a.title === b.title) {
           return (
@@ -24,11 +23,17 @@ const Books = () => {
         return a.author.localeCompare(b.author);
       }
     });
-
-    setBooks(updatedBooks);
+    return books;
   };
+  const [books, setBooks] = useState(sortBooks(booksInLibrary));
+
   const handleShowBooks = () => {
     setShowBooks(!showBooks);
+  };
+  const addBook = (newBook) => {
+    const updatedBooks = sortBooks([...books, newBook]);
+
+    setBooks(updatedBooks);
   };
 
   const loanBook = (uuid) => {
@@ -55,14 +60,11 @@ const Books = () => {
     });
     setBooks(updatedBooksList);
   };
-  const filteredBooks = books.filter((book) => {
-    return book.title.toLowerCase().includes(searchQuery.toLocaleLowerCase());
-  });
 
   return (
     <div>
       <button onClick={handleShowBooks}>
-        {showBooks ? "Sakri knjige" : "Prikazi sve knjige u knjiznici"}
+        {showBooks ? "Sakrij knjige" : "Prikazi sve knjige u knjiznici"}
       </button>
       {showBooks && (
         <BooksList books={books} returnBook={returnBook} loanBook={loanBook} />
